@@ -7,5 +7,8 @@
 
 cd "$(dirname "$0")"
 
-cp -r python/docker-shorthands /usr/share/
-ln -s /usr/share/docker-shorthands/dck.py /usr/bin/dck
+DOCKS_LIBDIR="/usr/share/docker-shorthands"
+
+mkdir "$DOCKS_LIBIDR"
+cp -r python/docks python/dockshort "$DOCKS_LIBDIR/"
+ln -s "$DOCKS_LIBDIR/docks" /usr/bin/docks
