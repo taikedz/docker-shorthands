@@ -1,5 +1,8 @@
 from dockshort import common
 
+fstrings = {}
+fstrings['ip'] = '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+
 def list(arguments):
     target = "containers"
 
@@ -18,6 +21,13 @@ def info(arguments):
     arguments = arguments[1:]
 
     if len(arguments) < 1:
-        common.rundocker("inspect", [])
+        # Print everything
+        common.rundocker("inspect", [containername])
     else:
+        for label in arguments:
+            try:
+                formatstring = fstrings[label]
+                common.rundocker("inspect", [ "--format='%s'" % formatstring , containername ])
+            except KeyError as e:
+                print "Unknown info label '%s'" % label
         # --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
