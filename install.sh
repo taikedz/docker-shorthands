@@ -9,6 +9,6 @@ cd "$(dirname "$0")"
 
 DOCKS_LIBDIR="/usr/share/docker-shorthands"
 
-mkdir "$DOCKS_LIBIDR"
+mkdir -p "$DOCKS_LIBDIR"
 cp -r python/docks python/dockshort "$DOCKS_LIBDIR/"
 ln -s "$DOCKS_LIBDIR/docks" /usr/bin/docks
