@@ -7,7 +7,7 @@ def split_on_token(token, array):
     """
     try:
         i = array.index(token)
-        return array[i:], array[i+1:]
+        return array[:i], array[i+1:]
     except ValueError as e:
         return array, None
 
