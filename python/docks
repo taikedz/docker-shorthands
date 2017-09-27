@@ -3,7 +3,14 @@
 import sys
 from dockshort import image, info, container, registry
 
+def sanity_check(array, minlen):
+    if minlen > len(array):
+        print "Not enough arguments"
+        exit(1)
+
 def main():
+    sanity_check(sys.argv, 2)
+
     command = sys.argv[1]
     arguments = sys.argv[2:]
 
