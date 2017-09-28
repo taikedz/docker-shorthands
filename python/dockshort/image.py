@@ -18,6 +18,15 @@ def run(arguments):
     containername, arguments = common.extract_after_token("as", arguments)
     containername = set_option_tag("--name", containername, sep="=")
 
+    port_exposures = []
+    while True:
+        portmap,aruments = common.extract_after_token("-e", arguments)
+        if not portmap:
+            break
+
+        # There are both "expose" and "publish" which are slightly different - what to choose?
+        port_exposures = set_option_tag("--expose", port_exposures, sep="=")
+
     # Finally split off the end options
     dockeroptions, imageargs = common.split_on_token("--", arguments)
 
