@@ -44,6 +44,19 @@ class TestCommon(unittest.TestCase):
         front,back = self.split_on("%%")
         self.assertTrue(back == None )
 
+
+    def test_args_check_less(self):
+        ran_ok = common.args_check([1], 2)
+        self.assertTrue( not ran_ok )
+
+    def test_args_check_eq(self):
+        ran_ok = common.args_check([1, 2], 2)
+        self.assertTrue( ran_ok )
+
+    def test_args_check_more(self):
+        ran_ok = common.args_check([1, 2, 3], 2)
+        self.assertTrue( ran_ok )
+
     # Note - not sure how to test the execution lines
 
 unittest.main()

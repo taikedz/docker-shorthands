@@ -1,5 +1,8 @@
 from dockshort import run as drun
 
+def args_check(array, minlen):
+    return minlen <= len(array)
+
 def split_on_token(token, array):
     """ Find token and return the two array halves on either side
 
