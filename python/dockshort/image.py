@@ -7,7 +7,11 @@ def set_option_tag(optiontag, value, sep=" "):
         return [optiontag +sep+ value]
 
 def run(arguments):
-    imagename = arguments[0]
+    if not common.args_check(arguments, 1):
+        print "Run requires at least one argument, the image name."
+        exit(1)
+
+    imagename = [arguments[0]]
     arguments = arguments[1:]
 
     # Shorthand named options
