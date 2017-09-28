@@ -10,5 +10,9 @@ if [ -z "$*" ]; then
 fi
 
 for testfile in "${testfiles[@]}"; do
-	python "$testfile"
+	if [ -f "$testfile" ]; then
+		python "$testfile"
+	else
+		echo "No such file [$testfile]"
+	fi
 done
