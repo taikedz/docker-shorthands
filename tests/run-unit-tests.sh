@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-export PYTHONPATH="./python/:$PYTHONPATH"
+export PYTHONPATH="./:$PYTHONPATH"
 testfiles=("$@")
 
 if [ -z "$*" ]; then
