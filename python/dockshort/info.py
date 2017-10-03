@@ -13,6 +13,8 @@ def list(arguments):
         common.rundocker("images", [])
     elif target == "containers":
         common.rundocker("ps", ["-a"])
+    elif target == "volumes":
+        common.rundocker("volume", ["ls"])
     elif target == "running":
         common.rundocker("ps", [])
 
