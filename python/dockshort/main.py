@@ -1,6 +1,16 @@
 #!/usr/bin/python
 
+# Allow runtime to be installed as an executable via symlink
+
 import sys
+import os
+
+heredir = os.path.dirname( os.path.realpath(__file__) )
+heredir = os.path.realpath( heredir +os.path.sep +"..")
+sys.path.append(heredir)
+
+# =======================
+
 from dockshort import image, info, container, registry, common
 
 def main():
