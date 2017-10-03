@@ -15,7 +15,7 @@ def attach(arguments):
 
     """
     containername = arguments[0]
-    shell = "sh"
+    shell = "bash"
     if len(arguments) > 1:
         shell = arguments[1]
 
