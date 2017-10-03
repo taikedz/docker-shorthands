@@ -12,6 +12,7 @@ Issues commands in the shell
 def execute(command_tokens):
     """ Runs command (first token), replacing current process
     """
+    print ' '.join(command_tokens)
     os.execvp(command_tokens[0], command_tokens)
 
 def call(command_tokens):
