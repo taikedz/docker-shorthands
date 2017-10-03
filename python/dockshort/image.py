@@ -29,8 +29,10 @@ def run(arguments):
 
     # Finally split off the end options
     dockeroptions, imageargs = common.split_on_token("--", arguments)
+    if imageargs == None:
+        imageargs = []
 
-    common.rundocker("run", containername + dockeroptions + imagename + imageargs)
+    common.rundocker("run", ["-d"] + containername + dockeroptions + imagename + imageargs)
 
 def commit(arguments):
     # docker commit -m "Commit description" -a "Author name" CONTAINER repo/imagename[:label]
