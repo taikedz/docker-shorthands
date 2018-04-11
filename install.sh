@@ -10,10 +10,10 @@ cd "$(dirname "$0")"
 DOCKS_LIBDIR="/usr/share/docker-shorthands"
 
 mkdir -p "$DOCKS_LIBDIR"
-cp -r python/docks python/dockshort "$DOCKS_LIBDIR/"
+cp -r dockshort "$DOCKS_LIBDIR/"
 
-if [ ! -e "$DOCKS_LIBDIR/docks" ]; then
-	ln -s "$DOCKS_LIBDIR/docks" /usr/bin/docks
+if [ ! -e "/usr/bin/docks" ]; then
+	ln -s "$DOCKS_LIBDIR/dockshort/main.py" /usr/bin/docks
 else
 	ls -l "/usr/bin/docks"
 fi
